@@ -1,0 +1,14 @@
+c:\Users\Dylan\Documents\csharp\noxphor\bin\Debug\net8.0\noxphor.exe
+c:\Users\Dylan\Documents\csharp\noxphor\bin\Debug\net8.0\noxphor.deps.json
+c:\Users\Dylan\Documents\csharp\noxphor\bin\Debug\net8.0\noxphor.runtimeconfig.json
+c:\Users\Dylan\Documents\csharp\noxphor\bin\Debug\net8.0\noxphor.dll
+c:\Users\Dylan\Documents\csharp\noxphor\bin\Debug\net8.0\noxphor.pdb
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.AssemblyInfoInputs.cache
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.AssemblyInfo.cs
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.csproj.CoreCompileInputs.cache
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.dll
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\refint\noxphor.dll
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.pdb
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.genruntimeconfig.cache
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\ref\noxphor.dll
