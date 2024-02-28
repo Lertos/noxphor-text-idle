@@ -12,3 +12,4 @@ c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\refint\noxphor.dll
 c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.pdb
 c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.genruntimeconfig.cache
 c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\ref\noxphor.dll
+c:\Users\Dylan\Documents\csharp\noxphor\obj\Debug\net8.0\noxphor.sourcelink.json
