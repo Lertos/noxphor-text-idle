@@ -1,7 +1,7 @@
 static class Display
 {
-    const string Separator = "===================================";
-    const string SubSeparator = "---------------------------------";
+    const string Separator = "";
+    public const string SubSeparator = "---------------------------------";
 
     static public string prefixText {get;set;} = "";
     static public string suffixText {get;set;} = "";

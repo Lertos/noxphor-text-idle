@@ -4,7 +4,7 @@ namespace StateManagement
 
     class StateManager
     {
-        private StateType currentState {get; set; } = StateType.IDLE;
+        private StateType currentState {get; set;} = StateType.IDLE;
         private Dictionary<StateType, State> states = new();
 
         public StateManager() 

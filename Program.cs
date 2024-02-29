@@ -10,9 +10,12 @@ Start();
 void Start() 
 {
     //Load variables and game state
-    Display.prefixText = "You are in a dense forest.";
-    Display.suffixText = "What would you like to do?";
-    Display.options = stateManager.GetOptions();
+    GameData.LoadInitialState();
+
+    //Start with a fresh console
+    Console.Clear();
+
+    stateManager.HandleCommand("l");
 
     //Start the game
     GameLoop();
@@ -24,9 +27,6 @@ void GameLoop()
 
     while (!quit)
     {
-        //Start with a fresh console
-        Console.Clear();
-
         //Ask for input from the player
         Display.UpdateText();
 
@@ -34,9 +34,16 @@ void GameLoop()
         string? command = Console.ReadLine();
 
         if (command == null || command == "")
+        {
+            Console.Clear();
+            Display.options = stateManager.GetOptions();
             continue;
+        }
 
         //Handle the outcome of the input/action
         stateManager.HandleCommand(command);
+
+        //Start with a fresh console
+        Console.Clear();
     }
 }
