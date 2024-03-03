@@ -31,4 +31,34 @@ public class Path
         battleEncounterChance = chance;
         return this;
     }
+
+    public void ChoosePath()
+    {
+        Random random = new();
+        
+        //Order of checks are "safe" > "dangerous" > "battle"
+        if (safeEncounterChance != 0.0 && random.NextDouble() < safeEncounterChance) 
+        {
+            ChooseEncounter(null); //TODO: Change to the child type of SafeEncounter
+            return;
+        } 
+        else if (dangerousEncounterChance != 0.0 && random.NextDouble() < dangerousEncounterChance) 
+        {
+            ChooseEncounter(null); //TODO: Change to the child type of DangerousEncounter
+            return;
+        } 
+        else if (battleEncounterChance != 0.0 && random.NextDouble() < battleEncounterChance) 
+        {
+            ChooseEncounter(null); //TODO: Change to the child type of BattleEncounter
+            return;
+        }
+
+        //If no encounters were triggered, then load the destination location
+        GameData.currentLocation = destination;
+    }
+
+    public void ChooseEncounter(Encounter encounter)
+    {
+        
+    }
 }

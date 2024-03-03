@@ -57,7 +57,7 @@ class IdleState : State
             case "l":
             case "look":
             {
-                Display.prefixText = GetLookText();
+                SetLookText();
                 break;
             }
             case "m":
@@ -74,6 +74,7 @@ class IdleState : State
             case "t":
             case "travel":
             {
+                HandleTravel(parts);
                 break;
             }
             default:
@@ -87,13 +88,13 @@ class IdleState : State
         Display.options = GetOptions();
     }
 
-    private String GetLookText()
+    private void SetLookText()
     {
         StringBuilder sb = new();
         Location? location = GameData.currentLocation;
 
         if (location == null)
-            return "";
+            return;
 
         sb.Append(location.description);
         
@@ -120,7 +121,41 @@ class IdleState : State
             sb.Append("\n");
         }
 
-        return sb.ToString();
+        Display.prefixText = sb.ToString();
+    }
+
+    private void HandleTravel(string[] parts)
+    {
+        if (parts.Length != 2) {
+            Display.warningText = "Travel only has one format: [ (t)ravel <location_number> ]";
+            return;
+        } 
+        
+        int optionSelect;
+        bool success = int.TryParse(parts[1], out optionSelect);
+
+        if (!success) {
+            Display.warningText = "The location ID supplied must be a valid integer.";
+            return;
+        }
+
+        Location? currentLocation = GameData.currentLocation;
+
+        if (currentLocation == null) {
+            Display.warningText = "You are not currently at a location.";
+            return;
+        }
+
+        Path[] paths = currentLocation.GetPaths();
+
+        if (optionSelect < 1 || optionSelect > paths.Length) {
+            Display.warningText = $"The option is not valid. It must be between 1 and {paths.Length}.";
+            return;
+        }
+
+        paths[optionSelect].ChoosePath();
+        
+        SetLookText();
     }
 
 }
