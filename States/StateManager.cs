@@ -1,6 +1,6 @@
 namespace StateManagement
 {
-    public enum StateType {IDLE, COMBAT, SHOP, TRAVEL, MENU, DIALOG, DUNGEON, CITY, HOME}
+    public enum StateType {IDLE, COMBAT, SHOP, ENCOUNTER, MENU, DIALOG, DUNGEON, CITY, HOME}
 
     class StateManager
     {
