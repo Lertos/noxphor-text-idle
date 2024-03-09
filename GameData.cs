@@ -19,12 +19,31 @@ public sealed class GameData
     public static void LoadInitialState()
     {
         SetCurrentLocation();
+        SaveLocation(currentLocation);
+    }
+
+    public static void SaveLocation(Location location)
+    {
+        ObjectStorage storage = new ObjectStorage("locations.json");
+
+        storage.StoreObject(location, location.id);
+    }
+
+    public static Location LoadLocation()
+    {
+        ObjectStorage storage = new ObjectStorage("locations.json");
+
+        Location location = storage.RetrieveObject<Location>("shack");
+        Console.WriteLine(location.name);
+
+        return location;
     }
 
     internal static void SetCurrentLocation()
     {
         Location basement = new Location(
-            "The Basement",
+            "basement",
+            "Basement",
             "It's completely soaked in bath water, with toilet paper all over the ground.",
             Location.Type.BASE,
             [],
@@ -32,6 +51,7 @@ public sealed class GameData
         );
 
         Location porch = new Location(
+            "porch",
             "Porch",
             "Stepping over the huge hole right infront of the door, you look out to see an overgrown lawn.",
             Location.Type.BASE,
@@ -45,7 +65,8 @@ public sealed class GameData
         };
 
         currentLocation = new Location(
-            "The Shack", 
+            "shack",
+            "Shack", 
             "It smells musty and looks no better.",
             Location.Type.BASE,
             paths,

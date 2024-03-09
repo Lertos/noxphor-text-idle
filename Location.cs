@@ -2,6 +2,7 @@ public class Location
 {
     public enum Type {BASE, SHOP, BATTLE, DUNGEON, HARVEST, CRAFT, HOME}
 
+    public string id { get; private set;}
     public string name {get; private set;}
     public string description {get; private set;}
     private Type locationType {get;}
@@ -9,8 +10,9 @@ public class Location
     private Location[] pointsOfInterest;
     //List of NPCs
 
-    public Location(string name, string description, Type locationType, Path[] paths, Location[] pointsOfInterest)
+    public Location(string id, string name, string description, Type locationType, Path[] paths, Location[] pointsOfInterest)
     {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.locationType = locationType;
