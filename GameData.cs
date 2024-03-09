@@ -3,6 +3,7 @@ public sealed class GameData
     private static GameData? instance = null;
 
     public static Location? currentLocation {get; set;}
+    public static Location? previousLocation { get; set; }
 
 
     private GameData () {}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dylan\\Documents\\csharp\\noxphor\\noxphor.csproj": {}
+    "C:\\Users\\Dylan\\source\\repos\\noxphor-text-idle\\noxphor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dylan\\Documents\\csharp\\noxphor\\noxphor.csproj": {
+    "C:\\Users\\Dylan\\source\\repos\\noxphor-text-idle\\noxphor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dylan\\Documents\\csharp\\noxphor\\noxphor.csproj",
+        "projectUniqueName": "C:\\Users\\Dylan\\source\\repos\\noxphor-text-idle\\noxphor.csproj",
         "projectName": "noxphor",
-        "projectPath": "C:\\Users\\Dylan\\Documents\\csharp\\noxphor\\noxphor.csproj",
+        "projectPath": "C:\\Users\\Dylan\\source\\repos\\noxphor-text-idle\\noxphor.csproj",
         "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dylan\\Documents\\csharp\\noxphor\\obj\\",
+        "outputPath": "C:\\Users\\Dylan\\source\\repos\\noxphor-text-idle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

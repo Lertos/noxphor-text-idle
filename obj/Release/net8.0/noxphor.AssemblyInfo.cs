@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("noxphor")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6603163bb26d0af46b3958e1a23893e9d17e5818")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5d11dafff348f8ec7ddfe6d894797dfa8293467")]
 [assembly: System.Reflection.AssemblyProductAttribute("noxphor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("noxphor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

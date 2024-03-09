@@ -23,4 +23,52 @@ public class Location
         return paths;
     }
 
+    public void TryTravel(string pathChoice)
+    {
+        int optionSelect;
+        bool success = int.TryParse(pathChoice, out optionSelect);
+
+        if (!success)
+        {
+            if (pathChoice == "b" || pathChoice == "back")
+            {
+                TryTravelPrevious();
+                return;
+            }
+
+            Display.warningText = "The location ID supplied must be a valid integer unless going (b)ack.";
+            return;
+        }
+
+        Path[] paths = GameData.currentLocation.GetPaths();
+
+        if (paths.Length <= 0)
+        {
+            Display.warningText = "There are no valid paths. You cannot travel from this location.";
+            return;
+        }
+
+        if (optionSelect < 1 || optionSelect > paths.Length)
+        {
+            Display.warningText = $"The option is not valid. It must be between 1 and {paths.Length}.";
+            return;
+        }
+
+        paths[optionSelect].ChoosePath();
+    }
+
+    private void TryTravelPrevious()
+    {
+        Location? tempLocation = GameData.currentLocation;
+
+        if (tempLocation == null || GameData.previousLocation == null)
+        {
+            Display.warningText = "(b)ack is not a valid option at this point in time.";
+            return;
+        }
+
+        GameData.currentLocation = GameData.previousLocation;
+        GameData.previousLocation = tempLocation;
+    }
+
 }

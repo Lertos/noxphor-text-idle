@@ -2,22 +2,27 @@ using System.Text;
 
 class IdleState : State
 {
-
     public override string GetOptions()
     {
+        int padding = 15;
+
         StringBuilder sb = new();
 
-        sb.Append("(b)ag".PadRight(15));
-        sb.Append("(i)nteract".PadRight(15));
-        sb.Append("(m)ap".PadRight(15));
+        sb.Append("(b)ag".PadRight(padding));
+        sb.Append("(i)nteract".PadRight(padding));
+        sb.Append("(m)ap".PadRight(padding));
+
         sb.Append("\n");
-        sb.Append("(c)haracter".PadRight(15));
-        sb.Append("(j)ournal".PadRight(15));
-        sb.Append("(q)uit".PadRight(15));
+
+        sb.Append("(c)haracter".PadRight(padding));
+        sb.Append("(j)ournal".PadRight(padding));
+        sb.Append("(q)uit".PadRight(padding));
+
         sb.Append("\n");
-        sb.Append("(e)quipment".PadRight(15));
-        sb.Append("(l)ook".PadRight(15));
-        sb.Append("(t)ravel".PadRight(15));
+
+        sb.Append("(e)quipment".PadRight(padding));
+        sb.Append("(l)ook".PadRight(padding));
+        sb.Append("(t)ravel".PadRight(padding));
 
         return sb.ToString();
     }
@@ -25,63 +30,64 @@ class IdleState : State
     public override void HandleCommand(string command)
     {
         string[] parts = command.Split(" ");
-        
-        switch (parts[0].Trim().ToLower()) 
+
+        switch (parts[0].Trim().ToLower())
         {
             case "b":
             case "bag":
-            {
-                break;
-            }
+                {
+                    break;
+                }
             case "c":
             case "character":
-            {
-                break;
-            }
+                {
+                    break;
+                }
             case "e":
             case "equipment":
-            {
-                break;
-            }
+                {
+                    break;
+                }
             case "i":
             case "interact":
-            {
-                Display.prefixText = "You interact with the thing.";
-                break;
-            }
+                {
+                    Display.prefixText = "You interact with the thing.";
+                    break;
+                }
             case "j":
             case "journal":
-            {
-                break;
-            }
+                {
+                    break;
+                }
             case "l":
             case "look":
-            {
-                SetLookText();
-                break;
-            }
+                {
+                    SetLookText();
+                    break;
+                }
             case "m":
             case "map":
-            {
-                break;
-            }
+                {
+                    break;
+                }
             case "q":
             case "quit":
-            {
-                Environment.Exit(0);
-                break;
-            }
+                {
+                    Environment.Exit(0);
+                    break;
+                }
             case "t":
             case "travel":
-            {
-                HandleTravel(parts);
-                break;
-            }
+                {
+                    HandleTravel(parts);
+                    SetLookText();
+                    break;
+                }
             default:
-            {
-                Display.warningText = "That is not a valid option.";
-                break;
-            }
+                {
+                    Display.warningText = "That is not a valid option.";
+                    break;
+                }
         }
 
         Display.suffixText = "What would you like to do?";
@@ -97,16 +103,25 @@ class IdleState : State
             return;
 
         sb.Append(location.description);
-        
+
         Path[] paths = location.GetPaths();
 
-        if (paths.Length > 0)
+        if (paths.Length > 0 || GameData.previousLocation != null)
         {
             int count = 1;
 
             sb.Append("\n");
             sb.Append(Display.SubSeparator);
             sb.Append("\n");
+
+            //Show the previous location if it exists
+            if (GameData.previousLocation != null)
+            {
+                sb.Append('\n');
+                sb.Append("b : Go back to the previous location (");
+                sb.Append(GameData.previousLocation.name);
+                sb.Append(")");
+            }
 
             foreach (Path path in paths)
             {
@@ -126,36 +141,19 @@ class IdleState : State
 
     private void HandleTravel(string[] parts)
     {
-        if (parts.Length != 2) {
-            Display.warningText = "Travel only has one format: [ (t)ravel <location_number> ]";
-            return;
-        } 
-        
-        int optionSelect;
-        bool success = int.TryParse(parts[1], out optionSelect);
-
-        if (!success) {
-            Display.warningText = "The location ID supplied must be a valid integer.";
+        if (parts.Length != 2)
+        {
+            Display.warningText = "Travel only has one format: [ (t)ravel <location_number> / <(b)ack> ]";
             return;
         }
 
-        Location? currentLocation = GameData.currentLocation;
-
-        if (currentLocation == null) {
+        if (GameData.currentLocation == null)
+        {
             Display.warningText = "You are not currently at a location.";
             return;
         }
 
-        Path[] paths = currentLocation.GetPaths();
-
-        if (optionSelect < 1 || optionSelect > paths.Length) {
-            Display.warningText = $"The option is not valid. It must be between 1 and {paths.Length}.";
-            return;
-        }
-
-        paths[optionSelect].ChoosePath();
-        
-        SetLookText();
+        GameData.currentLocation.TryTravel(parts[1]);
     }
 
 }
