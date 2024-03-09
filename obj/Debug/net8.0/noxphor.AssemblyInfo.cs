@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("noxphor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90f1aaebba8c8bd1a675b3ee42cd24aac8db3f9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41aa309af74ea7099a027030d615a92b543ef3f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("noxphor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("noxphor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

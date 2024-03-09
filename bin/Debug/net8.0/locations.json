@@ -1,7 +1,23 @@
 {
   "shack": {
+    "paths": [
+      {
+        "description": "Looking down, you see a hidden trapdoor that is ajar.",
+        "safeEncounterChance": 0.0,
+        "dangerousEncounterChance": 0.0,
+        "battleEncounterChance": 0.0
+      },
+      {
+        "description": "There is a creaky door waiting to be pushed.",
+        "safeEncounterChance": 0.0,
+        "dangerousEncounterChance": 0.0,
+        "battleEncounterChance": 0.0
+      }
+    ],
+    "pointsOfInterest": [],
     "id": "shack",
     "name": "Shack",
-    "description": "It smells musty and looks no better."
+    "description": "It smells musty and looks no better.",
+    "locationType": 0
   }
 }

@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+
 public class Location
 {
     public enum Type {BASE, SHOP, BATTLE, DUNGEON, HARVEST, CRAFT, HOME}
@@ -5,8 +8,11 @@ public class Location
     public string id { get; private set;}
     public string name {get; private set;}
     public string description {get; private set;}
+    [JsonProperty]
     private Type locationType {get;}
+    [JsonProperty]
     private Path[] paths;
+    [JsonProperty]
     private Location[] pointsOfInterest;
     //List of NPCs
 
