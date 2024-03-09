@@ -54,7 +54,7 @@ public class Location
             return;
         }
 
-        paths[optionSelect].ChoosePath();
+        paths[optionSelect - 1].ChoosePath();
     }
 
     private void TryTravelPrevious()
