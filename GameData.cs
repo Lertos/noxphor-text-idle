@@ -5,6 +5,8 @@ public sealed class GameData
     public static Location? currentLocation {get; set;}
     public static Location? previousLocation { get; set; }
 
+    //TODO: Possibly move these file names to some config file/class?
+    public const string FILE_NAME_LOCATIONS = "locations.json";
 
     private GameData () {}
 
@@ -24,14 +26,14 @@ public sealed class GameData
 
     public static void SaveLocation(Location location)
     {
-        ObjectStorage storage = new ObjectStorage("locations.json");
+        ObjectStorage storage = new ObjectStorage(FILE_NAME_LOCATIONS);
 
         storage.StoreObject(location, location.id);
     }
 
     public static Location LoadLocation()
     {
-        ObjectStorage storage = new ObjectStorage("locations.json");
+        ObjectStorage storage = new ObjectStorage(FILE_NAME_LOCATIONS);
 
         Location location = storage.RetrieveObject<Location>("shack");
         Console.WriteLine(location.name);

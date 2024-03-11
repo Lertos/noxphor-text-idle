@@ -11,10 +11,18 @@ public class Location
     [JsonProperty]
     private Type locationType {get;}
     [JsonProperty]
-    private Path[] paths;
+    private Path[]? paths;
     [JsonProperty]
-    private Location[] pointsOfInterest;
+    private Location[]? pointsOfInterest;
     //List of NPCs
+
+    public Location(string id, string name, string description, Type locationType)
+    {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.locationType = locationType;
+    }
 
     public Location(string id, string name, string description, Type locationType, Path[] paths, Location[] pointsOfInterest)
     {
@@ -26,8 +34,22 @@ public class Location
         this.pointsOfInterest = pointsOfInterest;
     }
 
+    public Location AddPaths(Path[] paths)
+    {
+        this.paths = paths;
+        return this;
+    }
+
+    public Location AddPointsOfInterest(Location[] pointsOfInterest)
+    {
+        this.pointsOfInterest = pointsOfInterest;
+        return this;
+    }
+
     public Path[] GetPaths()
     {
+        if (paths == null)
+            return [];
         return paths;
     }
 
