@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
 public class Location
 {
@@ -24,6 +23,7 @@ public class Location
         this.locationType = locationType;
     }
 
+    [JsonConstructor]
     public Location(string id, string name, string description, Type locationType, Path[] paths, Location[] pointsOfInterest)
     {
         this.id = id;
