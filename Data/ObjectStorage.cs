@@ -34,7 +34,7 @@ public class ObjectStorage
         }
     }
 
-    private Dictionary<string, T> LoadObjects<T>()
+    public Dictionary<string, T> LoadObjects<T>()
     {
         if (File.Exists(filePath))
         {
