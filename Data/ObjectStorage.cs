@@ -20,6 +20,14 @@ public class ObjectStorage
         SaveObjects(objects);
     }
 
+    public void DeleteObject<T>(string id)
+    {
+        Dictionary<string, T> objects = LoadObjects<T>();
+        objects.Remove(id);
+
+        SaveObjects(objects);
+    }
+
     public T RetrieveObject<T>(string id)
     {
         Dictionary<string, T> objects = LoadObjects<T>();
