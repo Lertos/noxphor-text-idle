@@ -8,7 +8,7 @@ public class Location
     public string name {get; private set;}
     public string description {get; private set;}
     [JsonProperty]
-    private Type locationType {get;}
+    public Type locationType {get;}
     [JsonProperty]
     private Path[]? paths;
     [JsonProperty]
